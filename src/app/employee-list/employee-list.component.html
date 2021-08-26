@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Employee List</h2>
+      </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Employee Type</th>
+            <th>Vacation Days Accumulated</th>
+            <th>i/p days</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees | async">
+            <td>{{employee.employeeName}}</td>
+            <td>{{employee.employeeType}}</td>
+            <td>{{employee.vacationDays}}</td>
+            <td><input [(ngModel)]="employee.inpdays"/></td>
+            <td>
+                <button (click)="work(employee)" class="btn btn-info" style="margin-left: 10px">Work</button>
+                <button (click)="takeVacation(employee)" class="btn btn-info" style="margin-left: 10px">TakeVacation</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
